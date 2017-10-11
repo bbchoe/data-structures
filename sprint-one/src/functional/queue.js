@@ -29,7 +29,9 @@ var Queue = function() {
     // Must evaluate when tail is greater than head
     if(tail > head) {
       // Returns storage[head] and then increments head by 1
-      return storage[head++];
+      var res = storage[head];
+      delete storage[head++];
+      return res;
     }
   };
 

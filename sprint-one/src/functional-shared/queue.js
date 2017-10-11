@@ -11,17 +11,17 @@ var Queue = function() {
   newQueue.head = 0;
 
   // Add shared methods
-  extend(newQueue, queueMethods);
+  _.extend(newQueue, queueMethods);
 
   // returning object
   return newQueue;
 };
 
-var extend = function(original, additions) {
-	for( var key in additions ) {
-		original[key] = additions[key];
-	}
-}
+// var extend = function(original, additions) {
+// 	for( var key in additions ) {
+// 		original[key] = additions[key];
+// 	}
+// };
 
 // Object that stores all methods
 var queueMethods = {};
@@ -31,19 +31,19 @@ queueMethods.enqueue = function(value) {
 	// Binds value to this.storage[this.tail] and then increments this.tail
 	// by 1
 	this.storage[this.tail++] = value;
-}
+};
 
 queueMethods.dequeue = function() {
 	//When this.tail is less than or equal to this.head, there is nothing to dequeue
 	// Therefore, must evaluate when this.tail > this.head
 	if(this.tail > this.head) {
-		// Returns this.storage[this.head] and then increments this.head by 1
-		return this.storage[this.head++];
+	 // Returns this.storage[this.head] and then increments this.head by 1
+	 return this.storage[this.head++];
 	}
-}
+};
 
 queueMethods.size = function() {
-	return this.tail-this.head;
-}
+	return this.tail - this.head;
+};
 
 

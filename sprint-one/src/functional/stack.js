@@ -17,7 +17,9 @@ var Stack = function() {
     // if size is not already 0
     if(size !== 0) {
       // decrements size by 1 and then returns storage[size]
-      return storage[--size];
+      var res = storage[--size];
+      delete storage[size];
+      return res;
     }
   };
 
