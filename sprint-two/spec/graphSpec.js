@@ -68,4 +68,51 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+  
+  it('should not overwrite any existing node(s)', function() {
+    graph.addNode(1);
+    graph.addNode(2);
+    graph.addNode(3);
+    graph.addNode(4);
+    graph.addNode(5);
+    graph.addNode(6);
+    graph.addEdge(1, 2);
+    graph.addEdge(1, 5);
+    graph.addEdge(3, 2);
+    graph.addEdge(5, 2);
+    graph.addEdge(5, 4);
+    graph.addEdge(3, 4);
+    graph.addEdge(4, 6);
+    
+    graph.addNode(4);
+    
+    expect(graph.hasEdge(4, 6)).to.equal(true);
+    expect(graph.hasEdge(4, 3)).to.equal(true);
+    expect(graph.hasEdge(4, 5)).to.equal(true);
+  });
+  
+  it('should not overwrite any existing edges', function() {
+    graph.addNode(1);
+    graph.addNode(2);
+    graph.addNode(3);
+    graph.addNode(4);
+    graph.addNode(5);
+    graph.addNode(6);
+    graph.addEdge(1, 2);
+    graph.addEdge(1, 5);
+    graph.addEdge(3, 2);
+    graph.addEdge(5, 2);
+    graph.addEdge(5, 4);
+    graph.addEdge(3, 4);
+    
+    graph.addEdge(4, 6);
+    graph.addEdge(4, 6);
+    
+    graph.removeEdge(4, 6);
+    
+    expect(graph.hasEdge(4, 6)).to.equal(false);
+    
+  });
+  
+  
 });

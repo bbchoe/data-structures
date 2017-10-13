@@ -3,6 +3,7 @@ var LinkedList = function() {
   list.head = null;
   list.tail = null;
 
+// complexity O(1)
   list.addToTail = function(value) {
 // add node with 'value'. old tail should point to this node.
 // if list head and tail are both null, then create new node, 
@@ -20,6 +21,7 @@ var LinkedList = function() {
     list.tail = addingNode;
   };
 
+// complexity O(1)
   list.removeHead = function() {
     // Bind the value of list.head to res, BEFORE resetting list.head
     var res = list.head.value;
@@ -28,6 +30,7 @@ var LinkedList = function() {
     return res;
   };
 
+// complexity O(n)
   list.contains = function(target) {
     // Setting working Node to reference the beginning of the linked list
     var workingNode = list.head;
@@ -46,6 +49,7 @@ var LinkedList = function() {
   return list;
 };
 
+// complexity O(1)
 var Node = function(value) {
   var node = {};
 
