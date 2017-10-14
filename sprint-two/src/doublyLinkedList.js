@@ -16,7 +16,7 @@ DoublyLinkedList.prototype.addToTail = function(value) {
 };
 
 DoublyLinkedList.prototype.removeTail = function() {
-  if (this.tail !== null ) {
+  if (this.tail !== null) {
     var res = this.tail.value;
     this.tail = this.tail.previous;
     this.tail.next = null;
@@ -36,11 +36,23 @@ DoublyLinkedList.prototype.addToHead = function(value) {
 };
 
 DoublyLinkedList.prototype.removeHead = function() {
-  
+  if (this.head !== null) {
+    var res = this.head.value;
+    this.head = this.head.next;
+    this.head.previous = null;
+    return res;
+  }
 };
 
 DoublyLinkedList.prototype.contains = function(value) {
-  
+  var workingNode = this.head;
+  while (workingNode !== null) {
+    if (workingNode.value === value) {
+      return true;
+    }
+    workingNode = workingNode.next;
+  }
+  return false;
 };
 
 var dNode = function(value) {
