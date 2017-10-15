@@ -37,4 +37,14 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+  
+  it('should have correct balanceFactor for each node in the tree', function() {
+    binarySearchTree.insert(4);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(6);
+    binarySearchTree.insert(9);
+    binarySearchTree.insert(11);
+    
+    expect(binarySearchTree.balanceFactor).to.equal(3);
+  });
 });
